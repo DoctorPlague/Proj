@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +13,7 @@ namespace Proj
             if (!string.IsNullOrEmpty(text) && number > 0)
             {
 
-                for (int i = 0; i < number; i++)
+                for (int i = 0; i < Math.Abs(text.Length - number); i++)
                 {
                     var left = new StringBuilder();
                     var right = new StringBuilder();
@@ -42,21 +42,24 @@ namespace Proj
         {
             if (!string.IsNullOrEmpty(text) && number > 0)
             {
-                int res= Math.Abs(text.Length - number); ;
+               
+
                 if ((text.Length % 2) != 0)
                 {
-                    res--;
-                }
 
-                if (res > text.Length-1)
+                }
+                int res = Math.Abs(text.Length - number);
+
+                if (res > text.Length - 1)
                 {
                     res %= text.Length;
                 }
 
-
+                
                 return Encrypt(text, res);
             }
             return text;
         }
+
     }
 }
