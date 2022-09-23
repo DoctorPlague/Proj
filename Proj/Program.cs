@@ -1,16 +1,22 @@
-﻿using Proj;
+using Proj;
 
 var simple = new SimpleEncryption();
 
-string word = "12345";
+string word = "123456789";
 
-int number = 10;
+Console.WriteLine(word.Length);
 
-string res = simple.Encrypt(word,number);
+string res = String.Empty;
 
-Console.WriteLine(res);
+int[] number = new int[20];
 
 Console.WriteLine();
 
-Console.WriteLine(simple.Decrypt(res, number));
-
+for (int i = 0; i < 20; i++)
+{
+    res = simple.Encrypt(word, number[i] = new Random().Next(10));
+    Console.WriteLine(res);
+   
+    Console.WriteLine(simple.Decrypt(res, number[i]));
+    Console.WriteLine();
+}
